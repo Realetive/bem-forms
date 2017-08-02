@@ -2,7 +2,7 @@ block('label')(
 
     tag()('label'),
 
-    attrs()(function() {
+    addAttrs()(function() {
         return { for : this.ctx.for };
     }),
 
@@ -12,7 +12,7 @@ block('label')(
         return applyNext();
     }),
 
-    match(function() { return this._form_field; }).attrs()(function() {
+    match(function() { return this._form_field; }).addAttrs()(function() {
         return { for : this._form_field.id };
     })
 

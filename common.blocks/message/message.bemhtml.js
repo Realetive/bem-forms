@@ -1,1 +1,1 @@
-block('message').js()(true);
+block('message').addJs()(true);

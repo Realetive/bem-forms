@@ -1,6 +1,6 @@
 block('form-field')(
 
-    js()(true),
+    addJs()(true),
 
     def()(function() {
         var _form_field = this.ctx;
@@ -12,7 +12,7 @@ block('form-field')(
         return applyNext({ _form_field : _form_field });
     }),
 
-    attrs()(function () {
+    addAttrs()(function () {
         return {
             'data-name' : this.ctx.name
         };

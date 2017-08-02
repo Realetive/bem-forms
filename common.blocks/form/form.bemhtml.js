@@ -2,9 +2,9 @@ block('form')(
 
     tag()('form'),
 
-    js()(true),
+    addJs()(true),
 
-    attrs()(function() {
+    addAttrs()(function() {
         var ctx = this.ctx;
 
         return {
