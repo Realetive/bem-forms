@@ -1,30 +1,41 @@
 modules.define('spec',
-    ['form-field'],
-    function(provide, FormField) {
+    ['form-field', 'i-bem-dom', 'jquery', 'BEMHTML', 'chai'],
+    function(provide, FormField, bemDom, $, BEMHTML, chai) {
 
-    describe('form fields manipulating', function() {
+var expect = chai.expect;
 
-        var formField;
+describe('form-field', function() {
 
-        beforeEach(function() {
-            formField = buildFormField();
-        });
+    var formField;
 
-        it.skip('should get tab-index', function() {
-            formField.getIndex().should.be.eq(1);
-        });
-
-        it.skip('should set tab-index', function() {
-            formField.getIndex().should.be.eq(1);
-            formField.setIndex(-1);
-            formField.getIndex().should.be.eq(-1);
-        });
-
+    beforeEach(function() {
+        formField = bemDom.init($(BEMHTML.apply({
+            block : 'form-field'
+        })).appendTo('body')).bem(FormField);
     });
 
-    function buildFormField() {
+    afterEach(function() {
+        bemDom.destruct(formField.domElem);
+    });
 
-    }
+    it.skip('should get id');
 
-    provide();
+    it.skip('should require dirty mechanic');
+
+    it.skip('should exec validators on blur');
+
+    it.skip('should update status after validation');
+
+    it.skip('should set status manually');
+
+    it.skip('should set validations messages');
+
+    it.skip('should set one validation message');
+
+    it.skip('should disable label and control in disable mod');
+
+});
+
+provide();
+
 });
