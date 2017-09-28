@@ -1,5 +1,6 @@
 ({
-    shouldDeps : [
-        { block : 'select', mods : { mode : ['radio', 'radio-check', 'check'] } }
-    ]
+    shouldDeps : {
+        block : 'select',
+        mods : { invalid : true, dirty : true }
+    }
 })

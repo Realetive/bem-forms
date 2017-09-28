@@ -1,9 +1,8 @@
 /**
  * @module form-field
  */
-modules.define('form-field',
-function(provide, FormField) {
-
+modules.define('form-field', ['message'],
+    function(provide, Message, FormField) {
 /**
  * Base form-field__message class
  *
@@ -11,28 +10,14 @@ function(provide, FormField) {
  * @class form-field
  * @bem
  */
-FormField.decl({ block : this.name, modName : 'message' }, /** @lends form-field.prototype */{
-    onSetMod : {
-        'focused' : {
-            'true' : function() {
-                this.__base.apply(this, arguments);
-
-                this.hasMod('invalid') && this.getMessage().show();
-            },
-            '' : function() {
-                this.__base.apply(this, arguments);
-
-                this.getMessage().hide();
-            }
-        }
-    },
+FormField.declMod({ modName : 'message', modVal: '*' }, /** @lends form-field.prototype */{
     /**
      * Return instance of message block
      * @public
      * @abstract
      */
     getMessage : function() {
-        return this._message || (this._message = this.findBlockInside('message'));
+        return this._message || (this._message = this.findChildElem('message').findMixedBlock(Message));
     },
     /**
      * Return message value
@@ -49,8 +34,25 @@ FormField.decl({ block : this.name, modName : 'message' }, /** @lends form-field
      */
     setMessageVal : function(val) {
         this.getMessage().setVal(val);
-        this.emit('message-change');
+        this._emit('message-change');
         return this;
+    },
+    /**
+     * Update statuses on form-field and elements: message
+     *
+     * @protected
+     */
+    _updateStatus : function() {
+        this.__base.apply(this, arguments);
+
+        if(!this.hasMod('message')) {
+            console.warn('Message modifier required for form-field', this); // jshint ignore:line
+            return;
+        }
+
+        var status = this._status;
+        this.getMessage().toggleMod('invalid', true, Boolean(status));
+        if(status && status.message) this.setMessageVal(status.message);
     }
 });
 

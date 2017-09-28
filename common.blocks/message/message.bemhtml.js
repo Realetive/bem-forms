@@ -1,0 +1,1 @@
+block('message').addJs()(true);
