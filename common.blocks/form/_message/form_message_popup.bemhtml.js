@@ -8,11 +8,11 @@ block('form').mod('message', 'popup')(
                 block : 'message',
                 mods : {
                     type : 'popup',
-                    theme : ctx.mods.theme,
-                    size : ctx.mods.size
+                    theme : this.mods.theme,
+                    size : this.mods.size
                 },
-                mix : { block : ctx.block, elem : 'message' },
-                directions : ctx.directions
+                mix : { block : this.block, elem : 'message' },
+                directions : this.ctx.directions
             }
         ];
     })
