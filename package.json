@@ -1,23 +1,24 @@
 {
   "name": "bem-forms",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "keywords": [
     "bem",
     "forms"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/bem-incubator/bem-forms"
+    "url": "https://github.com/bem-contrib/bem-forms"
   },
   "bugs": {
-    "url": "http://github.com/bem-incubator/bem-forms/issues"
+    "url": "http://github.com/bem-contrib/bem-forms/issues"
   },
   "dependencies": {
-    "bem-environ": "1.4.0",
-    "bower": "^1.7.1"
+    "bem-components": "^6.0.1",
+    "bem-core": "^4.2.1"
   },
   "devDependencies": {
     "bem-naming": "0.5.1",
+    "bem-pr": "github:narqo/bem-pr",
     "bh": "3.3.0",
     "borschik-tech-cleancss": "2.0.1",
     "enb": "^1.2.0",
@@ -26,7 +27,7 @@
     "enb-bem-specs": "^0.9.0",
     "enb-bem-techs": "^2.2.1",
     "enb-bem-tmpl-specs": "^1.2.0",
-    "enb-bemxjst": "^6.4.0",
+    "enb-bemxjst": "^8.0.0",
     "enb-bh": "^1.2.0",
     "enb-borschik": "^2.4.0",
     "enb-js": "^1.1.0",

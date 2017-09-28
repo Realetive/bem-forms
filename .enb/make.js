@@ -17,7 +17,7 @@ var techs = {
         { path : 'node_modules/bem-components/design/common.blocks', check: false },
         { path : 'node_modules/bem-components/design/desktop.blocks', check: false },
     ],
-    specs = [{ path : 'libs/bem-pr/spec.blocks', check : false }],
+    specs = [{ path : 'node_modules/bem-pr/spec.blocks', check : false }],
     project = ['common.blocks'],
     examples = ['example.blocks'];
 
