@@ -9,13 +9,13 @@ var techs = {
         bem : require('enb-bem-techs')
     },
     enbBemTechs = require('enb-bem-techs'),
-    libs = [
-        { path : 'libs/bem-core/common.blocks', check: false },
-        { path : 'libs/bem-core/desktop.blocks', check: false },
-        { path : 'libs/bem-components/common.blocks', check: false },
-        { path : 'libs/bem-components/desktop.blocks', check: false },
-        { path : 'libs/bem-components/design/common.blocks', check: false },
-        { path : 'libs/bem-components/design/desktop.blocks', check: false },
+    levels = [
+        { path : 'node_modules/bem-core/common.blocks', check: false },
+        { path : 'node_modules/bem-core/desktop.blocks', check: false },
+        { path : 'node_modules/bem-components/common.blocks', check: false },
+        { path : 'node_modules/bem-components/desktop.blocks', check: false },
+        { path : 'node_modules/bem-components/design/common.blocks', check: false },
+        { path : 'node_modules/bem-components/design/desktop.blocks', check: false },
     ],
     specs = [{ path : 'libs/bem-pr/spec.blocks', check : false }],
     project = ['common.blocks'],
@@ -28,7 +28,7 @@ module.exports = function(config) {
     config.module('enb-bem-specs').createConfigurator('specs').configure({
         destPath       : 'common.specs',
         levels         : [].concat(project),
-        sourceLevels   : [].concat(specs, libs, project),
+        sourceLevels   : [].concat(specs, levels, project),
         jsSuffixes : ['vanilla.js', 'browser.js', 'js'],
         depsTech : techs.bem.depsOld,
         scripts : ['https://yastatic.net/es5-shims/0.0.2/es5-shims.min.js'],
@@ -54,7 +54,7 @@ module.exports = function(config) {
 
     config.nodes('*.bundles/*', function(nodeConfig) {
         nodeConfig.addTechs([
-            [enbBemTechs.levels, { levels: [].concat(libs, project, examples) }],
+            [enbBemTechs.levels, { levels: [].concat(levels, project, examples) }],
             [techs.fileProvider, { target: '?.bemjson.js' }],
             [enbBemTechs.bemjsonToBemdecl],
             [enbBemTechs.deps],
